@@ -1,0 +1,130 @@
+:root{
+    --navbar-color: #fcf0ef;
+    --button-color: #c27976;
+    --green-accent: #74643c;
+    --bg-color: #f4e1db;
+    --text-color: #683738;
+    --light-accent: #ffe8e6;
+    --gradient-orange: #e4b974;
+}
+
+:root.dark {
+    --navbar-color: #683738;
+    --button-color: #c27976;
+    --green-accent: #74643c;
+    --bg-color: #f4e1db;
+    --text-color: #fcf0ef;
+    --light-accent: #ffe8e6;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1#logo {
+    font-family : 'Brush Script MT', cursive;
+    font-size: 240%;
+    font-weight:lighter;    
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(75deg, var(--navbar-color), var(--light-accent));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 6rem;
+
+    
+}
+.nav-links li a {
+    font-weight: 600;
+    color: var(--text-color);
+    
+}
+.nav-icons .icon {
+    margin-left: 5%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    flex-direction: left;
+    align-items: left;
+    justify-content: left;
+    padding: 4% 8%;
+    text-align: center;
+    background-size: cover;
+    background-position: left;
+    background-color: var(--light-accent);
+    background-image: url('Skärmbild 2026-03-19 142146.jpg');
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+.hero-content h2 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+.hero-content p {
+    margin: 1rem 0 2rem;
+    font-size: 1.1rem;
+}
+.btn {
+    background-color: var(--button-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-block;
+}
+.hero-btn {
+    font-size: 1.1rem;
+}
+
+.categories {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.category-card {
+    background-color: var(--light-accent);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+}
+.category-card img {
+    width: 100%;
+    display: block;
+}
+.category-card h3 {
+    margin: 1rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-image: url(footerPink.jpg);
+}
+
+
