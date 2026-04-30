@@ -121,6 +121,97 @@ h1#logo {
     margin: 1rem 0;
 }
 
+.page-hero {
+    padding: 4rem 8%;
+    background: linear-gradient(135deg, rgba(255, 232, 230, 0.95), rgba(228, 185, 196, 0.95));
+    text-align: left;
+}
+
+.page-hero h1 {
+    font-size: 2.8rem;
+    margin: 0.5rem 0;
+}
+
+.page-hero h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.page-hero p {
+    max-width: 700px;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.category-grid,
+.product-grid {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.page-section {
+    padding: 0 1rem 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin: 0 0 1rem 1rem;
+}
+
+.section-intro {
+    margin: 0 1rem 1.5rem;
+    color: rgba(104, 55, 56, 0.8);
+}
+
+.product-card,
+.category-card {
+    background-color: var(--light-accent);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(104, 55, 56, 0.08);
+}
+
+.product-card img,
+.category-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 260px;
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.product-card h3 {
+    margin: 0 0 0.75rem;
+}
+
+.product-card p {
+    margin: 0 0 1rem;
+    color: rgba(104, 55, 56, 0.85);
+    line-height: 1.7;
+}
+
+.price {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--green-accent);
+}
+
+.nav-links li a.active {
+    color: var(--button-color);
+    text-decoration: underline;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
 footer {
     text-align: center;
     padding: 1rem 0;
