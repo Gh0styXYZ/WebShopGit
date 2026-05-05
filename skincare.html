@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hudvård | Glow & Care</title>
     <link rel="stylesheet" href="style.css">
+    <script src="cart.js"></script>
 </head>
 <body>
     <header>
@@ -19,7 +20,10 @@
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
             <div class="nav-icons">
-                <img id="icons" src="Shopping cart.svg" alt="Shopping Cart">
+                <a id="cart-icon" href="cart.html" style="position: relative; cursor: pointer;">
+                    <img id="icons" src="Shopping cart.svg" alt="Shopping Cart">
+                    <span id="cart-count" class="cart-badge">0</span>
+                </a>
                 <img id="icons" src="Search.svg" alt="Search Icon">
             </div>
         </nav>
@@ -43,6 +47,7 @@
                     <h3>Fuktighetskräm</h3>
                     <p>Återfuktar huden hela dagen utan att kännas tung.</p>
                     <span class="price">249 kr</span>
+                    <button class="btn btn-add-cart" data-add-to-cart data-product='{"id": "moisturizer-1", "name": "Fuktighetskräm", "price": 249}'>Lägg i kundvagnen</button>
                 </div>
             </article>
             <article class="product-card">
@@ -51,6 +56,7 @@
                     <h3>Glow Serum</h3>
                     <p>Lätt serum som ger huden lyster och näring.</p>
                     <span class="price">329 kr</span>
+                    <button class="btn btn-add-cart" data-add-to-cart data-product='{"id": "serum-1", "name": "Glow Serum", "price": 329}'>Lägg i kundvagnen</button>
                 </div>
             </article>
             <article class="product-card">
@@ -59,6 +65,7 @@
                     <h3>Rengöringsbalm</h3>
                     <p>Tar bort smink och orenheter utan att torka ut huden.</p>
                     <span class="price">199 kr</span>
+                    <button class="btn btn-add-cart" data-add-to-cart data-product='{"id": "cleansingbalm-1", "name": "Rengöringsbalm", "price": 199}'>Lägg i kundvagnen</button>
                 </div>
             </article>
         </div>

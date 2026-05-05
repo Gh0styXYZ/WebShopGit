@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundvagn | Glow & Care</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1 id="logo">Glow & Care</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="products.html">Produkter</a></li>
+                <li><a href="aboutUs.html">Om Oss</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a id="cart-icon" href="cart.html" style="position: relative; cursor: pointer;">
+                    <img id="icons" src="Shopping cart.svg" alt="Shopping Cart">
+                    <span id="cart-count" class="cart-badge">0</span>
+                </a>
+                <img id="icons" src="Search.svg" alt="Search Icon">
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div>
+            <h2>Kundvagn</h2>
+            <h1>Din shoppingvagn</h1>
+            <p>Granska dina varor och uppdatera innan du fortsätter till kassa.</p>
+        </div>
+    </section>
+
+    <section class="cart-container">
+        <div id="cart-content">
+            <div class="empty-cart">
+                <p>Din kundvagn är tom</p>
+                <a href="products.html" class="btn btn-continue-shopping">Fortsätt handla</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Glow & Care. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hantera kundvagn-sidan
+        class CartPage {
+            constructor() {
+                this.cart = window.cart;
+                this.renderCart();
+            }
+
+            renderCart() {
+                const cartContent = document.getElementById('cart-content');
+                
+                if (this.cart.cart.length === 0) {
+                    cartContent.innerHTML = `
+                        <div class="empty-cart">
+                            <p>Din kundvagn är tom</p>
+                            <a href="products.html" class="btn btn-continue-shopping">Fortsätt handla</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '<div class="cart-items">';
+                
+                this.cart.cart.forEach(item => {
+                    const totalPrice = item.price * item.quantity;
+                    html += `
+                        <div class="cart-item">
+                            <div class="cart-item-info">
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-price">${item.price} kr per stycke</div>
+                                <div class="cart-item-quantity">
+                                    <button class="quantity-btn" onclick="cartPage.updateQuantity('${item.id}', ${item.quantity - 1})">−</button>
+                                    <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="cartPage.updateQuantity('${item.id}', parseInt(this.value))">
+                                    <button class="quantity-btn" onclick="cartPage.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                                </div>
+                                <div><strong>Totalt: ${totalPrice} kr</strong></div>
+                            </div>
+                            <button class="remove-btn" onclick="cartPage.removeItem('${item.id}')">Ta bort</button>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+
+                // Lägg till sammanfattning
+                const totalPrice = this.cart.getTotalPrice();
+                html += `
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Summa:</span>
+                            <span>${this.cart.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)} kr</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Frakt:</span>
+                            <span>49 kr</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Totalt att betala:</span>
+                            <span>${totalPrice + 49} kr</span>
+                        </div>
+                    </div>
+                    <div class="cart-actions">
+                        <a href="products.html" class="btn btn-continue-shopping">Fortsätt handla</a>
+                        <button class="btn btn-checkout" onclick="cartPage.checkout()">Gå till kassa</button>
+                    </div>
+                `;
+
+                cartContent.innerHTML = html;
+            }
+
+            updateQuantity(productId, newQuantity) {
+                this.cart.updateQuantity(productId, newQuantity);
+                this.renderCart();
+            }
+
+            removeItem(productId) {
+                this.cart.removeProduct(productId);
+                this.renderCart();
+            }
+
+            checkout() {
+                alert('Tack för din beställning!');
+                this.cart.clearCart();
+                this.renderCart();
+            }
+        }
+
+        // Initiera kundvagn-sida när DOM är redo
+        document.addEventListener('DOMContentLoaded', () => {
+            window.cartPage = new CartPage();
+        });
+    </script>
+</body>
+</html>
