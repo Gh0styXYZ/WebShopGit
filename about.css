@@ -35,7 +35,7 @@
 
 .about-hero-image {
     flex: 1;
-    min-height: 100%;
+    min-height: 500px;
     border-radius: 30px;
     background-image: url('aboutUsyDecoration.jpg');
     background-size: cover;
@@ -104,6 +104,7 @@
     }
 
     .about-hero-image {
+        width: 100%;
         min-height: 320px;
     }
 }
