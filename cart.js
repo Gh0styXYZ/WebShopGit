@@ -1,4 +1,4 @@
-// Kundvagn - LocalStorage hantering
+// Shopping Cart - LocalStorage handling
 class ShoppingCart {
     constructor() {
         this.storageKey = 'glowAndCareCart';
@@ -17,7 +17,7 @@ class ShoppingCart {
     }
 
     addProduct(product) {
-        // Kontrollera om produkten redan finns i kundvagnen
+        // Check if the product already exists in the shopping cart
         const existingProduct = this.cart.find(item => item.id === product.id);
         
         if (existingProduct) {
@@ -80,7 +80,7 @@ class ShoppingCart {
     }
 
     showNotification(message) {
-        // Skapar en enkel notification
+        // Creates a simple notification
         const notification = document.createElement('div');
         notification.textContent = message;
         notification.style.cssText = `
@@ -110,7 +110,7 @@ class ShoppingCart {
     }
 
     addEventListeners() {
-        // Lägg till event listeners för "Lägg till i kundvagnen" knappar
+        // Add event listeners for "Add to Shopping Cart" buttons
         document.querySelectorAll('[data-add-to-cart]').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -119,7 +119,7 @@ class ShoppingCart {
             });
         });
 
-        // Kundvagns-ikon länk
+        // Shoppingcart-icon link
         const cartIcon = document.getElementById('cart-icon');
         if (cartIcon) {
             cartIcon.addEventListener('click', (e) => {
@@ -130,7 +130,7 @@ class ShoppingCart {
     }
 }
 
-// Initiera kundvagn när sidan laddas
+// Initiate shoppingcart when the site loads
 document.addEventListener('DOMContentLoaded', () => {
     window.cart = new ShoppingCart();
 });
